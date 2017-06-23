@@ -1,0 +1,1839 @@
+// converted by version 1.3
+// on Wed Jun 21 18:06:51 CEST 2017
+
+.package keepassSafe {
+	.aid 0x11:0x22:0x33:0x44:0x55:0x66:0x77:0x88;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x0:0x1 1.0;		//java/lang
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.3;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x2 1.3;		//javacard/security
+	}
+
+	.applet {
+		0x11:0x22:0x33:0x44:0x55:0x66:0x77:0x88:0x0 passwordSafe;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef byte[] fileSystem/tempData;
+		// 1
+		instanceFieldRef 0.0[] fileSystem/listFiles;
+		// 2
+		instanceFieldRef short[] fileSystem/listfileSizes;
+		// 3
+		instanceFieldRef 1.9 passwordSafe/pin;
+		// 4
+		instanceFieldRef 1.9 passwordSafe/puk;
+		// 5
+		instanceFieldRef byte passwordSafe/state;
+		// 6
+		instanceFieldRef byte passwordSafe/masterPW;
+		// 7
+		instanceFieldRef byte passwordSafe/masterPWlength;
+		// 8
+		instanceFieldRef byte[] passwordSafe/temp_data;
+		// 9
+		instanceFieldRef fileSystem passwordSafe/myfile;
+		// 10
+		instanceFieldRef 2.14 passwordSafe/randomKey;
+		// 11
+		staticMethodRef 1.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 12
+		classRef passwordSafe;
+		// 13
+		staticMethodRef passwordSafe/<init>()V;
+		// 14
+		staticMethodRef 1.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 15
+		staticMethodRef 1.16.2([BS[BSS)S;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+		// 16
+		staticMethodRef 0.0.0()V;		// java/lang/Object.<init>()V
+		// 17
+		classRef 1.9;		// javacard/framework/OwnerPIN
+		// 18
+		staticMethodRef 1.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+		// 19
+		staticMethodRef 1.8.13(SB)[B;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+		// 20
+		classRef 0.0;		// java/lang/Object
+		// 21
+		staticMethodRef fileSystem/getFile(S)[B;
+		// 22
+		virtualMethodRef fileSystem/getFileSize(S)S;
+		// 23
+		classRef fileSystem;
+		// 24
+		staticMethodRef fileSystem/<init>()V;
+		// 25
+		staticMethodRef fileSystem/getFileIndex(S)S;
+		// 26
+		staticMethodRef 2.14.0(B)Ljavacard/security/RandomData;;		// javacard/security/RandomData.getInstance(B)Ljavacard/security/RandomData;
+			.descriptor	Ljavacard/security/RandomData;	2.14;
+
+		// 27
+		staticMethodRef 1.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 28
+		virtualMethodRef 1.3.1()V;		// register()V
+		// 29
+		virtualMethodRef 1.9.5()V;		// reset()V
+		// 30
+		virtualMethodRef 1.9.2()B;		// getTriesRemaining()B
+		// 31
+		virtualMethodRef fileSystem/deleteFile(S)V;
+		// 32
+		virtualMethodRef 1.10.1()[B;		// getBuffer()[B
+		// 33
+		virtualMethodRef 1.3.3()Z;		// selectingApplet()Z
+		// 34
+		virtualMethodRef 1.10.8(SS)V;		// setOutgoingAndSend(SS)V
+		// 35
+		staticMethodRef passwordSafe/cardINIT(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 36
+		staticMethodRef passwordSafe/checkPIN(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 37
+		staticMethodRef passwordSafe/changePIN(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 38
+		staticMethodRef passwordSafe/resetPIN(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 39
+		staticMethodRef passwordSafe/cardReset(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 40
+		staticMethodRef passwordSafe/setMasterPW(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 41
+		staticMethodRef passwordSafe/getMasterPW(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 42
+		staticMethodRef passwordSafe/delMasterPW(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 43
+		staticMethodRef passwordSafe/createFile(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 44
+		staticMethodRef passwordSafe/writeFile(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 45
+		staticMethodRef passwordSafe/readFile(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 46
+		staticMethodRef passwordSafe/deleteFile(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 47
+		staticMethodRef passwordSafe/getFileSize(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 48
+		staticMethodRef passwordSafe/getFileName(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+		// 49
+		virtualMethodRef 1.10.6()S;		// setIncomingAndReceive()S
+		// 50
+		virtualMethodRef 1.10.15()S;		// getIncomingLength()S
+		// 51
+		virtualMethodRef 1.10.16()S;		// getOffsetCdata()S
+		// 52
+		staticMethodRef 1.16.3([BSSB)S;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+		// 53
+		virtualMethodRef 1.9.8([BSB)V;		// update([BSB)V
+		// 54
+		virtualMethodRef 1.9.6()V;		// resetAndUnblock()V
+		// 55
+		virtualMethodRef 2.14.1([BSS)V;		// generateData([BSS)V
+		// 56
+		virtualMethodRef 1.9.1([BSB)Z;		// check([BSB)Z
+		// 57
+		virtualMethodRef 1.9.4()Z;		// isValidated()Z
+		// 58
+		virtualMethodRef fileSystem/createFile(SS)V;
+		// 59
+		virtualMethodRef fileSystem/writeDataToFile(SS[BSS)V;
+		// 60
+		virtualMethodRef fileSystem/readDataFromFile(SSS)[B;
+		// 61
+		staticMethodRef 1.16.5(BB)S;		// javacard/framework/Util.makeShort(BB)S
+		// 62
+		staticMethodRef 1.16.4([BS)S;		// javacard/framework/Util.getShort([BS)S
+		// 63
+		staticMethodRef 1.16.6([BSS)S;		// javacard/framework/Util.setShort([BSS)S
+	}
+
+	.class public fileSystem 0 extends 0.0 {		// extends java/lang/Object
+
+		.fields {
+			private 0.0[] listFiles 0;		// [Ljava/lang/Object;
+			private short[] listfileSizes 1;		// [S
+			private byte[] tempData 2;		// [B
+			public static final short keepassPW = 256;		// S
+			public static final short keepassFileName = 257;		// S
+			public static final short keepassData1 = 272;		// S
+			public static final short keepassData2 = 273;		// S
+			private static final short keepassPW_Index = 0;		// S
+			private static final short keepassName_Index = 1;		// S
+			private static final short keepassData_Index1 = 2;		// S
+			private static final short keepassData_Index2 = 3;		// S
+		}
+
+		.publicMethodTable 1 {
+			equals(Ljava/lang/Object;)Z;
+			readDataFromFile(SSS)[B;
+			createFile(SS)V;
+			deleteFile(S)V;
+			writeDataToFile(SS[BSS)V;
+			getFileSize(S)S;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public final readDataFromFile(SSS)[B 1 {
+			.stack 5;
+			.locals 1;
+
+				L0:	aload_0;
+					sload_1;
+					invokevirtual 22;		// getFileSize(S)S
+					sstore 4;
+				L1:	aload_0;
+					sload_1;
+					invokespecial 21;		// keepassSafe/fileSystem.getFile(S)[B
+					sload_2;
+					getfield_a_this 0;		// reference keepassSafe/fileSystem.tempData
+					sconst_0;
+					sload_3;
+					invokestatic 15;		// javacard/framework/Util.arrayCopyNonAtomic([BS[BSS)S
+					pop;
+					getfield_a_this 0;		// reference keepassSafe/fileSystem.tempData
+					checkcast 11 0;		// T_BYTE
+					areturn;
+		}
+
+		.method public <init>()V 0 {
+			.stack 3;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 16;		// java/lang/Object.<init>()V
+					aload_0;
+					sspush 250;
+					sconst_2;
+					invokestatic 19;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 0;		// reference keepassSafe/fileSystem.tempData
+					aload_0;
+					sconst_4;
+					anewarray 20;		// java/lang/Object
+					putfield_a 1;		// reference keepassSafe/fileSystem.listFiles
+					aload_0;
+					sconst_4;
+					newarray 12;
+					putfield_a 2;		// reference keepassSafe/fileSystem.listfileSizes
+					return;
+		}
+
+		.method public createFile(SS)V 2 {
+			.stack 3;
+			.locals 1;
+
+				L0:	aload_0;
+					sload_1;
+					invokespecial 25;		// keepassSafe/fileSystem.getFileIndex(S)S
+					sstore_3;
+				L1:	getfield_a_this 1;		// reference keepassSafe/fileSystem.listFiles
+					sload_3;
+					aaload;
+					ifnonnull L3;
+				L2:	getfield_a_this 1;		// reference keepassSafe/fileSystem.listFiles
+					sload_3;
+					sload_2;
+					newarray 11;
+					aastore;
+				L3:	getfield_a_this 2;		// reference keepassSafe/fileSystem.listfileSizes
+					sload_3;
+					sload_2;
+					sastore;
+					return;
+		}
+
+		.method public deleteFile(S)V 3 {
+			.stack 3;
+			.locals 1;
+
+				L0:	aload_0;
+					sload_1;
+					invokespecial 25;		// keepassSafe/fileSystem.getFileIndex(S)S
+					sstore_2;
+				L1:	getfield_a_this 1;		// reference keepassSafe/fileSystem.listFiles
+					sload_2;
+					aaload;
+					ifnull L3;
+				L2:	getfield_a_this 1;		// reference keepassSafe/fileSystem.listFiles
+					sload_2;
+					aconst_null;
+					aastore;
+				L3:	getfield_a_this 2;		// reference keepassSafe/fileSystem.listfileSizes
+					sload_2;
+					sconst_0;
+					sastore;
+					return;
+		}
+
+		.method public writeDataToFile(SS[BSS)V 4 {
+			.stack 5;
+			.locals 1;
+
+				L0:	aload_0;
+					sload_1;
+					invokevirtual 22;		// getFileSize(S)S
+					sstore 6;
+				L1:	sload 6;
+					sload_2;
+					sload 5;
+					sadd;
+					if_scmpge L3;
+				L2:	sspush 27268;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L3:	aload_3;
+					sload 4;
+					aload_0;
+					sload_1;
+					invokespecial 21;		// keepassSafe/fileSystem.getFile(S)[B
+					sload_2;
+					sload 5;
+					invokestatic 11;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					return;
+		}
+
+		.method private getFileIndex(S)S {
+			.stack 2;
+			.locals 0;
+
+				L0:	sload_1;
+					sspush 272;
+					if_scmpne L2;
+				L1:	sconst_2;
+					sreturn;
+				L2:	sload_1;
+					sspush 273;
+					if_scmpne L4;
+				L3:	sconst_3;
+					sreturn;
+				L4:	sload_1;
+					sspush 256;
+					if_scmpne L6;
+				L5:	sconst_0;
+					sreturn;
+				L6:	sload_1;
+					sspush 257;
+					if_scmpne L8;
+				L7:	sconst_1;
+					sreturn;
+				L8:	sconst_m1;
+					sreturn;
+		}
+
+		.method private getFile(S)[B {
+			.stack 2;
+			.locals 1;
+
+				L0:	aload_0;
+					sload_1;
+					invokespecial 25;		// keepassSafe/fileSystem.getFileIndex(S)S
+					sstore_2;
+				L1:	sload_2;
+					sconst_m1;
+					if_scmpne L3;
+				L2:	aconst_null;
+					areturn;
+				L3:	getfield_a_this 1;		// reference keepassSafe/fileSystem.listFiles
+					sload_2;
+					aaload;
+					checkcast 11 0;		// T_BYTE
+					checkcast 11 0;		// T_BYTE
+					areturn;
+		}
+
+		.method public getFileSize(S)S 5 {
+			.stack 2;
+			.locals 1;
+
+				L0:	aload_0;
+					sload_1;
+					invokespecial 25;		// keepassSafe/fileSystem.getFileIndex(S)S
+					sstore_2;
+				L1:	sload_2;
+					sconst_m1;
+					if_scmpne L3;
+				L2:	sconst_m1;
+					sreturn;
+				L3:	getfield_a_this 2;		// reference keepassSafe/fileSystem.listfileSizes
+					sload_2;
+					saload;
+					sreturn;
+		}
+
+	}
+
+	.class public passwordSafe 1 extends 1.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			private short[] offset_data 0;		// [S
+			private byte[] temp_data 1;		// [B
+			private 1.9 pin 2;		// Ljavacard/framework/OwnerPIN;
+			private 1.9 puk 3;		// Ljavacard/framework/OwnerPIN;
+			private 2.14 randomKey 4;		// Ljavacard/security/RandomData;
+			private fileSystem myfile 5;		// LkeepassSafe/fileSystem;
+			private byte state 6;		// B
+			private byte masterPW 7;		// B
+			private byte masterPWlength 8;		// B
+			public static final short SW_PIN_TRIES_REMAINING = 25536;		// S
+			public static final short SW_COMMAND_NOT_ALLOWED_GENERAL = 26880;		// S
+			public static final short SW_CARD_LOCKED = 25168;		// S
+			static final byte CLA_NUMBER = -128;		// B
+			static final byte INS_INIT = 32;		// B
+			static final byte INS_PIN_VERIFY = 33;		// B
+			static final byte INS_CHANGE_PIN = 34;		// B
+			static final byte INS_PIN_RESET = 35;		// B
+			static final byte INS_CARD_RESET = 36;		// B
+			static final byte INS_PW_SET = 48;		// B
+			static final byte INS_PW_GET = 49;		// B
+			static final byte INS_PW_DEL = 50;		// B
+			static final byte INS_CREATE_FILE = 64;		// B
+			static final byte INS_UPDATE_BINARY = 65;		// B
+			static final byte INS_READ_BINARY = 66;		// B
+			static final byte INS_DELETE_FILE = 67;		// B
+			static final byte INS_FILE_SIZE = 68;		// B
+			static final byte INS_GET_FILE_NAME = 69;		// B
+			private static final byte PIN_MAX_TRIES = 3;		// B
+			private static final byte PIN_MIN_LENGTH = 2;		// B
+			private static final byte PIN_MAX_LENGTH = 16;		// B
+			private static final byte PUK_MAX_TRIES = 3;		// B
+			private static final byte PUK_LENGTH = 8;		// B
+			private static final byte STATE_INIT = 0;		// B
+			private static final byte STATE_SECURE_NO_DATA = 1;		// B
+			private static final byte STATE_SECURE_DATA = 2;		// B
+			private static final byte STATE_PIN_LOCKED = 3;		// B
+			private static final byte MASTER_PW_STORED_YES = 1;		// B
+			private static final byte MASTER_PW_STORED_NO = 2;		// B
+		}
+
+		.publicMethodTable 4 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 2;
+			.locals 0;
+
+				L0:	new 12;		// keepassSafe/passwordSafe
+					dup;
+					invokespecial 13;		// keepassSafe/passwordSafe.<init>()V
+					pop;
+					return;
+		}
+
+		.method private <init>()V {
+			.stack 5;
+			.locals 0;
+
+				L0:	aload_0;
+					invokespecial 14;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					aconst_null;
+					putfield_a 3;		// reference keepassSafe/passwordSafe.pin
+					aload_0;
+					aconst_null;
+					putfield_a 4;		// reference keepassSafe/passwordSafe.puk
+					aload_0;
+					new 17;		// javacard/framework/OwnerPIN
+					dup;
+					sconst_3;
+					bspush 16;
+					invokespecial 18;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putfield_a 3;		// reference keepassSafe/passwordSafe.pin
+					aload_0;
+					new 17;		// javacard/framework/OwnerPIN
+					dup;
+					sconst_3;
+					bspush 8;
+					invokespecial 18;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putfield_a 4;		// reference keepassSafe/passwordSafe.puk
+					aload_0;
+					sconst_0;
+					putfield_b 5;		// byte keepassSafe/passwordSafe.state
+					aload_0;
+					sconst_2;
+					putfield_b 6;		// byte keepassSafe/passwordSafe.masterPW
+					aload_0;
+					sconst_0;
+					putfield_b 7;		// byte keepassSafe/passwordSafe.masterPWlength
+					aload_0;
+					sconst_2;
+					sconst_2;
+					invokestatic 19;		// javacard/framework/JCSystem.makeTransientByteArray(SB)[B
+					putfield_a 8;		// reference keepassSafe/passwordSafe.temp_data
+					aload_0;
+					new 23;		// keepassSafe/fileSystem
+					dup;
+					invokespecial 24;		// keepassSafe/fileSystem.<init>()V
+					putfield_a 9;		// reference keepassSafe/passwordSafe.myfile
+					aload_0;
+					sconst_2;
+					invokestatic 26;		// javacard/security/RandomData.getInstance(B)Ljavacard/security/RandomData;
+					putfield_a 10;		// reference keepassSafe/passwordSafe.randomKey
+					aload_0;
+					invokevirtual 28;		// register()V
+					return;
+		}
+
+		.method public deselect()V 4 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 29;		// reset()V
+					getfield_a_this 4;		// reference keepassSafe/passwordSafe.puk
+					invokevirtual 29;		// reset()V
+					return;
+		}
+
+		.method public select()Z 6 {
+			.stack 2;
+			.locals 0;
+
+				L0:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 30;		// getTriesRemaining()B
+					ifne L3;
+				L1:	getfield_a_this 4;		// reference keepassSafe/passwordSafe.puk
+					invokevirtual 30;		// getTriesRemaining()B
+					ifne L3;
+				L2:	sspush 25168;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 272;
+					invokevirtual 31;		// deleteFile(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 273;
+					invokevirtual 31;		// deleteFile(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 257;
+					invokevirtual 31;		// deleteFile(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 256;
+					invokevirtual 31;		// deleteFile(S)V
+					sconst_0;
+					sreturn;
+				L3:	sconst_1;
+					sreturn;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 3;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_0;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_1;
+					baload;
+					sstore 4;
+				L3:	aload_0;
+					invokevirtual 33;		// selectingApplet()Z
+					ifeq L5;
+				L4:	aload_2;
+					sconst_0;
+					getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 34;		// setOutgoingAndSend(SS)V
+					return;
+				L5:	sload_3;
+					bspush -128;
+					if_scmpne_w L22;
+				L6:	sload 4;
+					stableswitch L21 32 69 L7 L8 L9 L10 L11 L21 L21 L21 L21 L21 L21 L21 L21 L21 L21 L21 L12 L13 L14 L21 L21 L21 L21 L21 L21 L21 L21 L21 L21 L21 L21 L21 L15 L16 L17 L18 L19 L20;
+				L7:	aload_0;
+					aload_1;
+					invokespecial 35;		// keepassSafe/passwordSafe.cardINIT(Ljavacard/framework/APDU;)V
+					goto L23;
+				L8:	aload_0;
+					aload_1;
+					invokespecial 36;		// keepassSafe/passwordSafe.checkPIN(Ljavacard/framework/APDU;)V
+					goto L23;
+				L9:	aload_0;
+					aload_1;
+					invokespecial 37;		// keepassSafe/passwordSafe.changePIN(Ljavacard/framework/APDU;)V
+					goto L23;
+				L10:	aload_0;
+					aload_1;
+					invokespecial 38;		// keepassSafe/passwordSafe.resetPIN(Ljavacard/framework/APDU;)V
+					goto L23;
+				L11:	aload_0;
+					aload_1;
+					invokespecial 39;		// keepassSafe/passwordSafe.cardReset(Ljavacard/framework/APDU;)V
+					goto L23;
+				L12:	aload_0;
+					aload_1;
+					invokespecial 40;		// keepassSafe/passwordSafe.setMasterPW(Ljavacard/framework/APDU;)V
+					goto L23;
+				L13:	aload_0;
+					aload_1;
+					invokespecial 41;		// keepassSafe/passwordSafe.getMasterPW(Ljavacard/framework/APDU;)V
+					goto L23;
+				L14:	aload_0;
+					aload_1;
+					invokespecial 42;		// keepassSafe/passwordSafe.delMasterPW(Ljavacard/framework/APDU;)V
+					goto L23;
+				L15:	aload_0;
+					aload_1;
+					invokespecial 43;		// keepassSafe/passwordSafe.createFile(Ljavacard/framework/APDU;)V
+					goto L23;
+				L16:	aload_0;
+					aload_1;
+					invokespecial 44;		// keepassSafe/passwordSafe.writeFile(Ljavacard/framework/APDU;)V
+					goto L23;
+				L17:	aload_0;
+					aload_1;
+					invokespecial 45;		// keepassSafe/passwordSafe.readFile(Ljavacard/framework/APDU;)V
+					goto L23;
+				L18:	aload_0;
+					aload_1;
+					invokespecial 46;		// keepassSafe/passwordSafe.deleteFile(Ljavacard/framework/APDU;)V
+					goto L23;
+				L19:	aload_0;
+					aload_1;
+					invokespecial 47;		// keepassSafe/passwordSafe.getFileSize(Ljavacard/framework/APDU;)V
+					goto L23;
+				L20:	aload_0;
+					aload_1;
+					invokespecial 48;		// keepassSafe/passwordSafe.getFileName(Ljavacard/framework/APDU;)V
+					goto L23;
+				L21:	sspush 27904;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+					goto L23;
+				L22:	sspush 28160;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L23:	return;
+		}
+
+		.method private cardINIT(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L4:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L6;
+				L5:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L6:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L7:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L9;
+				L8:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L9:	sload_3;
+					ifeq L12;
+				L10:	sload 4;
+					sconst_1;
+					if_scmpeq L12;
+				L11:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload 6;
+					bspush 16;
+					if_scmpgt L14;
+				L13:	sload 6;
+					sconst_2;
+					if_scmpge L15;
+				L14:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L15:	aload_2;
+					sload 5;
+					sload 6;
+					sadd;
+					bspush 16;
+					sload 6;
+					ssub;
+					sconst_0;
+					invokestatic 52;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					aload_2;
+					sload 5;
+					bspush 16;
+					invokevirtual 53;		// update([BSB)V
+					getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 54;		// resetAndUnblock()V
+					getfield_a_this 10;		// reference keepassSafe/passwordSafe.randomKey
+					aload_2;
+					sconst_0;
+					bspush 8;
+					invokevirtual 55;		// generateData([BSS)V
+					getfield_a_this 4;		// reference keepassSafe/passwordSafe.puk
+					aload_2;
+					sconst_0;
+					bspush 8;
+					invokevirtual 53;		// update([BSB)V
+					getfield_a_this 4;		// reference keepassSafe/passwordSafe.puk
+					invokevirtual 54;		// resetAndUnblock()V
+					aload_0;
+					sconst_1;
+					putfield_b 5;		// byte keepassSafe/passwordSafe.state
+					aload_1;
+					sconst_0;
+					bspush 8;
+					invokevirtual 34;		// setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private checkPIN(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L4:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L6;
+				L5:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L6:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L7:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifne L9;
+				L8:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L9:	sload_3;
+					sconst_1;
+					if_scmpeq L12;
+				L10:	sload 4;
+					ifeq L12;
+				L11:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	aload_2;
+					sload 5;
+					sload 6;
+					sadd;
+					bspush 16;
+					sload 6;
+					ssub;
+					sconst_0;
+					invokestatic 52;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					aload_2;
+					sload 5;
+					bspush 16;
+					invokevirtual 56;		// check([BSB)Z
+					ifne L15;
+				L13:	sspush 25536;
+					getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 30;		// getTriesRemaining()B
+					sor;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+					getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 30;		// getTriesRemaining()B
+					ifne L16;
+				L14:	aload_0;
+					sconst_3;
+					putfield_b 5;		// byte keepassSafe/passwordSafe.state
+					goto L16;
+				L15:	aload_2;
+					sconst_0;
+					getfield_b_this 6;		// byte keepassSafe/passwordSafe.masterPW
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 34;		// setOutgoingAndSend(SS)V
+				L16:	return;
+		}
+
+		.method private changePIN(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	sload_3;
+					ifeq L12;
+				L10:	sload 4;
+					sconst_2;
+					if_scmpeq L12;
+				L11:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload 6;
+					bspush 32;
+					if_scmpeq L14;
+				L13:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					aload_2;
+					sload 5;
+					bspush 16;
+					invokevirtual 56;		// check([BSB)Z
+					ifne L16;
+				L15:	sspush 25536;
+					getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 30;		// getTriesRemaining()B
+					sor;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					aload_2;
+					sload 5;
+					bspush 16;
+					sadd;
+					bspush 16;
+					invokevirtual 53;		// update([BSB)V
+					return;
+		}
+
+		.method private resetPIN(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 30;		// getTriesRemaining()B
+					ifeq L5;
+				L4:	sspush 25536;
+					getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 30;		// getTriesRemaining()B
+					sor;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifne L11;
+				L10:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L11:	sload_3;
+					sconst_1;
+					if_scmpeq L14;
+				L12:	sload 4;
+					sconst_2;
+					if_scmpeq L14;
+				L13:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	getfield_a_this 4;		// reference keepassSafe/passwordSafe.puk
+					aload_2;
+					sload 5;
+					bspush 8;
+					invokevirtual 56;		// check([BSB)Z
+					ifne L16;
+				L15:	sspush 25536;
+					getfield_a_this 4;		// reference keepassSafe/passwordSafe.puk
+					invokevirtual 30;		// getTriesRemaining()B
+					sor;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L16:	sload 6;
+					bspush 8;
+					ssub;
+					s2b;
+					sconst_2;
+					if_scmplt L18;
+				L17:	sload 6;
+					bspush 8;
+					ssub;
+					s2b;
+					bspush 16;
+					if_scmple L19;
+				L18:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L19:	aload_2;
+					sload 5;
+					bspush 8;
+					sadd;
+					sload 6;
+					bspush 8;
+					ssub;
+					sadd;
+					bspush 16;
+					sload 6;
+					bspush 8;
+					ssub;
+					ssub;
+					sconst_0;
+					invokestatic 52;		// javacard/framework/Util.arrayFillNonAtomic([BSSB)S
+					pop;
+					getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					aload_2;
+					sload 5;
+					bspush 8;
+					sadd;
+					bspush 16;
+					invokevirtual 53;		// update([BSB)V
+					return;
+		}
+
+		.method private cardReset(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	sload_3;
+					ifeq L12;
+				L10:	sload 4;
+					ifeq L12;
+				L11:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	getfield_a_this 4;		// reference keepassSafe/passwordSafe.puk
+					aload_2;
+					sload 5;
+					bspush 8;
+					invokevirtual 56;		// check([BSB)Z
+					ifne L14;
+				L13:	sspush 25536;
+					getfield_a_this 4;		// reference keepassSafe/passwordSafe.puk
+					invokevirtual 30;		// getTriesRemaining()B
+					sor;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 272;
+					invokevirtual 31;		// deleteFile(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 273;
+					invokevirtual 31;		// deleteFile(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 257;
+					invokevirtual 31;		// deleteFile(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 256;
+					invokevirtual 31;		// deleteFile(S)V
+					aload_0;
+					sconst_0;
+					putfield_b 5;		// byte keepassSafe/passwordSafe.state
+					aload_0;
+					sconst_2;
+					putfield_b 6;		// byte keepassSafe/passwordSafe.masterPW
+					aload_0;
+					sconst_0;
+					putfield_b 7;		// byte keepassSafe/passwordSafe.masterPWlength
+					return;
+		}
+
+		.method private setMasterPW(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L11;
+				L10:	getfield_b_this 6;		// byte keepassSafe/passwordSafe.masterPW
+					sconst_1;
+					if_scmpne L12;
+				L11:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload_3;
+					sconst_2;
+					if_scmpeq L15;
+				L13:	sload 4;
+					sconst_1;
+					if_scmpeq L15;
+				L14:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L15:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 256;
+					sload 6;
+					invokevirtual 58;		// createFile(SS)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 256;
+					sconst_0;
+					aload_2;
+					sload 5;
+					sload 6;
+					invokevirtual 59;		// writeDataToFile(SS[BSS)V
+					aload_0;
+					sload 6;
+					sspush 255;
+					sand;
+					s2b;
+					putfield_b 7;		// byte keepassSafe/passwordSafe.masterPWlength
+					aload_0;
+					sconst_1;
+					putfield_b 6;		// byte keepassSafe/passwordSafe.masterPW
+					return;
+		}
+
+		.method private getMasterPW(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 6;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L11;
+				L10:	getfield_b_this 6;		// byte keepassSafe/passwordSafe.masterPW
+					sconst_2;
+					if_scmpne L12;
+				L11:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload_3;
+					sconst_2;
+					if_scmpeq L15;
+				L13:	sload 4;
+					sconst_2;
+					if_scmpeq L15;
+				L14:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L15:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 256;
+					sconst_0;
+					getfield_b_this 7;		// byte keepassSafe/passwordSafe.masterPWlength
+					invokevirtual 60;		// readDataFromFile(SSS)[B
+					astore 7;
+				L16:	aload 7;
+					sconst_0;
+					aload_2;
+					sconst_0;
+					getfield_b_this 7;		// byte keepassSafe/passwordSafe.masterPWlength
+					invokestatic 11;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					getfield_b_this 7;		// byte keepassSafe/passwordSafe.masterPWlength
+					invokevirtual 34;		// setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private delMasterPW(Ljavacard/framework/APDU;)V {
+			.stack 2;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27013;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L11;
+				L10:	getfield_b_this 6;		// byte keepassSafe/passwordSafe.masterPW
+					sconst_2;
+					if_scmpne L12;
+				L11:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload_3;
+					sconst_2;
+					if_scmpeq L15;
+				L13:	sload 4;
+					sconst_3;
+					if_scmpeq L15;
+				L14:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L15:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 256;
+					invokevirtual 31;		// deleteFile(S)V
+					aload_0;
+					sconst_2;
+					putfield_b 6;		// byte keepassSafe/passwordSafe.masterPW
+					aload_0;
+					sconst_0;
+					putfield_b 7;		// byte keepassSafe/passwordSafe.masterPWlength
+					return;
+		}
+
+		.method private createFile(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 8;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L11;
+				L10:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					sconst_2;
+					if_scmpne L12;
+				L11:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload_3;
+					sconst_3;
+					if_scmpeq L15;
+				L13:	sload 4;
+					sconst_1;
+					if_scmpeq L15;
+				L14:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L15:	aload_2;
+					sload 5;
+					getfield_a_this 8;		// reference keepassSafe/passwordSafe.temp_data
+					sconst_0;
+					sconst_2;
+					invokestatic 11;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 8;		// reference keepassSafe/passwordSafe.temp_data
+					sconst_0;
+					baload;
+					getfield_a_this 8;		// reference keepassSafe/passwordSafe.temp_data
+					sconst_1;
+					baload;
+					invokestatic 61;		// javacard/framework/Util.makeShort(BB)S
+					sstore 7;
+				L16:	aload_2;
+					sload 5;
+					sconst_2;
+					sadd;
+					getfield_a_this 8;		// reference keepassSafe/passwordSafe.temp_data
+					sconst_0;
+					sconst_2;
+					invokestatic 11;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 8;		// reference keepassSafe/passwordSafe.temp_data
+					sconst_0;
+					baload;
+					getfield_a_this 8;		// reference keepassSafe/passwordSafe.temp_data
+					sconst_1;
+					baload;
+					invokestatic 61;		// javacard/framework/Util.makeShort(BB)S
+					sstore 8;
+				L17:	sconst_0;
+					bspush 42;
+					invokestatic 61;		// javacard/framework/Util.makeShort(BB)S
+					sstore 9;
+				L18:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 272;
+					sload 7;
+					invokevirtual 58;		// createFile(SS)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 273;
+					sload 8;
+					invokevirtual 58;		// createFile(SS)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 257;
+					sload 9;
+					invokevirtual 58;		// createFile(SS)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 257;
+					sconst_0;
+					aload_2;
+					sload 5;
+					sconst_4;
+					sadd;
+					sload 9;
+					invokevirtual 59;		// writeDataToFile(SS[BSS)V
+					aload_0;
+					sconst_2;
+					putfield_b 5;		// byte keepassSafe/passwordSafe.state
+					return;
+		}
+
+		.method private writeFile(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 8;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L11;
+				L10:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					sconst_1;
+					if_scmpne L12;
+				L11:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload_3;
+					sconst_3;
+					if_scmpeq L14;
+				L13:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	sload 6;
+					sconst_2;
+					ssub;
+					sstore 7;
+				L15:	sload 5;
+					sconst_2;
+					sadd;
+					sstore 8;
+				L16:	aload_2;
+					sload 5;
+					invokestatic 62;		// javacard/framework/Util.getShort([BS)S
+					sstore 9;
+				L17:	sload 4;
+					sconst_1;
+					if_scmpne L19;
+				L18:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 272;
+					sload 9;
+					aload_2;
+					sload 8;
+					sload 7;
+					invokevirtual 59;		// writeDataToFile(SS[BSS)V
+					goto L22;
+				L19:	sload 4;
+					sconst_2;
+					if_scmpne L21;
+				L20:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 273;
+					sload 9;
+					aload_2;
+					sload 8;
+					sload 7;
+					invokevirtual 59;		// writeDataToFile(SS[BSS)V
+					goto L22;
+				L21:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L22:	return;
+		}
+
+		.method private readFile(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 7;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L11;
+				L10:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					sconst_1;
+					if_scmpne L12;
+				L11:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload_3;
+					sconst_3;
+					if_scmpeq L14;
+				L13:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	aload_2;
+					sload 5;
+					sconst_2;
+					sadd;
+					invokestatic 62;		// javacard/framework/Util.getShort([BS)S
+					sstore 7;
+				L15:	aload_2;
+					sload 5;
+					invokestatic 62;		// javacard/framework/Util.getShort([BS)S
+					sstore 8;
+				L16:	sload 4;
+					sconst_1;
+					if_scmpne L18;
+				L17:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 272;
+					sload 8;
+					sload 7;
+					invokevirtual 60;		// readDataFromFile(SSS)[B
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 7;
+					invokestatic 11;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto L21;
+				L18:	sload 4;
+					sconst_2;
+					if_scmpne L20;
+				L19:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 273;
+					sload 8;
+					sload 7;
+					invokevirtual 60;		// readDataFromFile(SSS)[B
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 7;
+					invokestatic 11;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					goto L21;
+				L20:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L21:	aload_1;
+					sconst_0;
+					sload 7;
+					invokevirtual 34;		// setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private deleteFile(Ljavacard/framework/APDU;)V {
+			.stack 2;
+			.locals 5;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L11;
+				L10:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					sconst_1;
+					if_scmpne L12;
+				L11:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload_3;
+					sconst_3;
+					if_scmpeq L14;
+				L13:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	sload 4;
+					sconst_1;
+					if_scmpne L16;
+				L15:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 272;
+					invokevirtual 31;		// deleteFile(S)V
+					goto L21;
+				L16:	sload 4;
+					sconst_2;
+					if_scmpne L18;
+				L17:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 273;
+					invokevirtual 31;		// deleteFile(S)V
+					goto L21;
+				L18:	sload 4;
+					sconst_3;
+					if_scmpne L20;
+				L19:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 272;
+					invokevirtual 31;		// deleteFile(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 273;
+					invokevirtual 31;		// deleteFile(S)V
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 257;
+					invokevirtual 31;		// deleteFile(S)V
+					goto L21;
+				L20:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L21:	aload_0;
+					sconst_1;
+					putfield_b 5;		// byte keepassSafe/passwordSafe.state
+					return;
+		}
+
+		.method private getFileSize(Ljavacard/framework/APDU;)V {
+			.stack 3;
+			.locals 7;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifne L11;
+				L10:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L11:	sload_3;
+					sconst_3;
+					if_scmpeq L14;
+				L12:	sload 4;
+					sconst_4;
+					if_scmpeq L14;
+				L13:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L14:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 272;
+					invokevirtual 22;		// getFileSize(S)S
+					sstore 7;
+				L15:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 273;
+					invokevirtual 22;		// getFileSize(S)S
+					sstore 8;
+				L16:	aload_2;
+					sconst_0;
+					sload 7;
+					invokestatic 63;		// javacard/framework/Util.setShort([BSS)S
+					pop;
+					aload_2;
+					sconst_2;
+					sload 8;
+					invokestatic 63;		// javacard/framework/Util.setShort([BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sconst_4;
+					invokevirtual 34;		// setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private getFileName(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 6;
+
+			.descriptor	Ljavacard/framework/APDU;	1.10;
+
+				L0:	aload_1;
+					invokevirtual 32;		// getBuffer()[B
+					astore_2;
+				L1:	aload_2;
+					sconst_2;
+					baload;
+					sstore_3;
+				L2:	aload_2;
+					sconst_3;
+					baload;
+					sstore 4;
+				L3:	getfield_a_this 3;		// reference keepassSafe/passwordSafe.pin
+					invokevirtual 57;		// isValidated()Z
+					ifne L5;
+				L4:	sspush 27010;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_1;
+					invokevirtual 49;		// setIncomingAndReceive()S
+					sstore 6;
+				L6:	sload 6;
+					aload_1;
+					invokevirtual 50;		// getIncomingLength()S
+					if_scmpeq L8;
+				L7:	sspush 26368;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L8:	aload_1;
+					invokevirtual 51;		// getOffsetCdata()S
+					sstore 5;
+				L9:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					ifeq L11;
+				L10:	getfield_b_this 5;		// byte keepassSafe/passwordSafe.state
+					sconst_1;
+					if_scmpne L12;
+				L11:	sspush 27014;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	sload_3;
+					sconst_1;
+					if_scmpeq L15;
+				L13:	sload 4;
+					sconst_1;
+					if_scmpeq L15;
+				L14:	sspush 27270;
+					invokestatic 27;		// javacard/framework/ISOException.throwIt(S)V
+				L15:	sconst_0;
+					bspush 42;
+					invokestatic 61;		// javacard/framework/Util.makeShort(BB)S
+					sstore 7;
+				L16:	getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					getfield_a_this 9;		// reference keepassSafe/passwordSafe.myfile
+					pop;
+					sspush 257;
+					sconst_0;
+					sload 7;
+					invokevirtual 60;		// readDataFromFile(SSS)[B
+					sconst_0;
+					aload_2;
+					sconst_0;
+					sload 7;
+					invokestatic 11;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_1;
+					sconst_0;
+					sload 7;
+					invokevirtual 34;		// setOutgoingAndSend(SS)V
+					return;
+		}
+
+	}
+
+}

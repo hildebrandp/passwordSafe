@@ -1,0 +1,17 @@
+<StateInfo>
+<ExpandNodes>
+<PkgNodes>
+<Node>keepassSafe</Node>
+</PkgNodes>
+</ExpandNodes>
+<FileNodes>
+<fnode>
+<fileName>src\keepassSafe\fileSystem.java</fileName>
+<line>122</line>
+</fnode>
+<ActiveFile>
+<fileName>src\keepassSafe\passwordSafe.java</fileName>
+<line>38</line>
+</ActiveFile>
+</FileNodes>
+</StateInfo>

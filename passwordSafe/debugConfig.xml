@@ -1,0 +1,11 @@
+<JavaCardProject name="passwordSafe">
+<USER>
+<PKG name="keepassSafe" aid="11 22 33 44 55 66 77 88" major="1" minor="0">
+<APPLET aid="11 22 33 44 55 66 77 88 00" instanceaid="" parameter="" authority="00" privileges="--------" index="-7656" name="passwordSafe"/>
+</PKG>
+<Libs/>
+</USER>
+<DebugInfo>
+<Protocol name="T01"/>
+</DebugInfo>
+</JavaCardProject>
